@@ -1,0 +1,6 @@
+app/bootstrap.php.cache
+app/cache/*
+app/logs/*
+build/
+composer.phar
+.idea/
