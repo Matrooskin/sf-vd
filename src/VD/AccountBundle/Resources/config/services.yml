@@ -1,0 +1,7 @@
+parameters:
+#    vd_account.example.class: VD\AccountBundle\Example
+
+services:
+#    vd_account.example:
+#        class: %vd_account.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
