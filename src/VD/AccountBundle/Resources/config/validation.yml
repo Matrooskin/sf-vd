@@ -1,0 +1,10 @@
+VD\AccountBundle\Entity:
+    properties:
+        email:
+            - NotBlank: ~
+            - Email: ~
+        password:
+            - NotBlank: ~
+            - MinLength: { limit: 6 }
+        name:
+            - NotBlank: ~

@@ -1,1 +1,4 @@
-Hello {{ name }}!
+{% extends "VDAccountBundle:Default:layout.html.twig" %}
+{% block body %}
+Jus prisijunge {{ app.user.username }} vardu;
+{% endblock %}

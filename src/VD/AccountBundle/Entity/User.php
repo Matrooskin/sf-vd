@@ -3,6 +3,7 @@
 namespace VD\AccountBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class User
+class User implements UserInterface, \Serializable
 {
     /**
      * @var integer
@@ -24,7 +25,7 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=50)
+     * @ORM\Column(name="email", type="string", length=50, unique=true)
      */
     private $email;
 
@@ -49,6 +50,13 @@ class User
      */
     private $salt;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->salt = md5(uniqid(null, true));
+    }
 
     /**
      * Get id
@@ -79,6 +87,14 @@ class User
      * @return string 
      */
     public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getUsername()
     {
         return $this->email;
     }
@@ -150,5 +166,40 @@ class User
     public function getSalt()
     {
         return $this->salt;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function eraseCredentials()
+    {
+    }
+
+    /**
+     * @see \Serializable::serialize()
+     */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+        ));
+    }
+
+    /**
+     * @see \Serializable::unserialize()
+     */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            ) = unserialize($serialized);
     }
 }
