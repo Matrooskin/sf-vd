@@ -93,14 +93,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* mixin of messages*/
 /* helpers */
 /* layout */
-/* line 87, assetic_compassmrSwGI.scss */
+/* line 87, assetic_compasseEPHyv.scss */
 .content {
   width: 900px;
   margin: auto;
   text-align: center;
 }
 
-/* line 93, assetic_compassmrSwGI.scss */
+/* line 93, assetic_compasseEPHyv.scss */
 .error {
   border: 1px solid;
   margin: 0 0 15px 0;
@@ -117,13 +117,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   color: #D8000C;
   background: #FFBABA;
 }
-/* line 96, assetic_compassmrSwGI.scss */
+/* line 96, assetic_compasseEPHyv.scss */
 .error:after {
   clear: both;
   display: block;
   content: '';
 }
-/* line 99, assetic_compassmrSwGI.scss */
+/* line 99, assetic_compasseEPHyv.scss */
 .error .img {
   background: url('/sf-vd/web/images/sprite-s7604bc354e.png') 0 -32px;
   background-repeat: no-repeat;
@@ -131,17 +131,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 32px;
   margin: 0 20px 0 0;
 }
-/* line 103, assetic_compassmrSwGI.scss */
+/* line 103, assetic_compasseEPHyv.scss */
 .error div {
   float: left;
 }
-/* line 106, assetic_compassmrSwGI.scss */
+/* line 106, assetic_compasseEPHyv.scss */
 .error .text {
   padding: 9px 0 0;
 }
 
 /* register page*/
-/* line 112, assetic_compassmrSwGI.scss */
+/* line 112, assetic_compasseEPHyv.scss */
 #register-form {
   width: 400px;
   text-align: center;
@@ -152,7 +152,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   box-shadow: 10px 10px 5px #888888;
   background-color: ghostwhite;
 }
-/* line 121, assetic_compassmrSwGI.scss */
+/* line 121, assetic_compasseEPHyv.scss */
 #register-form .title {
   background: none repeat scroll 0 0 #cffbb7;
   border-radius: 12px 12px 0 0;
@@ -164,31 +164,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-align: left;
   text-shadow: 2px 2px 2px #bbbbbb;
 }
-/* line 132, assetic_compassmrSwGI.scss */
+/* line 132, assetic_compasseEPHyv.scss */
 #register-form #registerUser {
   margin: 0 0 6px;
 }
-/* line 134, assetic_compassmrSwGI.scss */
+/* line 134, assetic_compasseEPHyv.scss */
 #register-form #registerUser div {
   padding: 3px 0;
 }
-/* line 136, assetic_compassmrSwGI.scss */
+/* line 136, assetic_compasseEPHyv.scss */
 #register-form #registerUser div:after {
   clear: both;
   display: block;
   content: '';
 }
-/* line 140, assetic_compassmrSwGI.scss */
+/* line 140, assetic_compasseEPHyv.scss */
 #register-form #registerUser label {
   float: left;
   margin: 0 0 10px 0;
 }
-/* line 144, assetic_compassmrSwGI.scss */
+/* line 144, assetic_compasseEPHyv.scss */
 #register-form #registerUser input {
   float: right;
   width: 200px;
 }
-/* line 148, assetic_compassmrSwGI.scss */
+/* line 148, assetic_compasseEPHyv.scss */
 #register-form #registerUser ul {
   float: right;
   width: 185px;

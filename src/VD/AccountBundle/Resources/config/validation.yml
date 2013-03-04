@@ -5,6 +5,8 @@ VD\AccountBundle\Entity:
             - Email: ~
         password:
             - NotBlank: ~
-            - MinLength: { limit: 6 }
+            - Length:
+                  min: 6
+                  minMessage: "Slaptažodis turi būti bent 6 simbolių"
         name:
             - NotBlank: ~

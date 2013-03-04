@@ -13,3 +13,7 @@ parameters:
 
     locale:            en
     secret:            jas093u0ajfp[f;qj94j03q9hg0qpwj;f-9jq10f
+
+    assetic.filter.compass.images_dir: %kernel.root_dir%/Resources/styles/inc/images
+    assetic.filter.compass.generated_images_path: %kernel.root_dir%/../web/images
+    assetic.filter.compass.http_path: /sf-vd/web/

@@ -1,11 +1,14 @@
 {% extends "VDAccountBundle:Default:layout.html.twig" %}
 {% block body %}
-    {% if error %}
-        <div>{{ error }}</div>
+    <div id="register-form">
+        <div class="title">Registracijos forma</div>
+    {% if error is defined %}
+        <div class="error"><div class="img"></div><div class="text">{{ error }}</div></div>
     {% endif %}
     <form action="{{ path('vd_account_register') }}" method="post" {{ form_enctype(form) }}>
         {{ form_widget(form) }}
 
-        <input type="submit"/>
+        <input type="submit" title="Registruotis" value="Registruotis"/>
     </form>
+    </div>
 {% endblock %}

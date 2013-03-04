@@ -1,3 +1,155 @@
 /* compass libraries */
 @import "compass/reset";
 @import "compass/css3";
+/* prepare sprite */
+@import "compass/utilities/sprites";
+
+$sprite-layout: smart;
+@import "sprite/*.png";
+@include all-sprite-sprites;
+$spriteMap: sprite-map("sprite/*.png");
+
+@mixin main-sprite-w-h($type) {
+  width: image-width(sprite-file($spriteMap, $type));
+  height: image-height(sprite-file($spriteMap, $type));
+}
+
+@mixin main-sprite($type) {
+  background: sprite($spriteMap, $type);
+  background-repeat: no-repeat;
+  @include main-sprite-w-h($type);
+}
+
+/* mixin of messages*/
+@mixin big-message-box {
+  border: 1px solid;
+  margin: 0 0 15px 0;
+  padding: 10px 20px;
+  font: bold 12px verdana;
+  -moz-box-shadow: 0 0 5px #888;
+  -webkit-box-shadow: 0 0 5px #888;
+  box-shadow: 0 0 5px #888;
+  text-shadow: 2px 2px 2px #ccc;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  text-align: left;
+}
+
+@mixin message-box {
+  border: 1px solid;
+  margin: 5px 0;
+  padding: 4px 10px 4px;
+  font: bold 12px verdana;
+  -moz-box-shadow: 0 0 5px #888;
+  -webkit-box-shadow: 0 0 5px #888;
+  box-shadow: 0 0 5px #888;
+  text-shadow: 2px 2px 2px #ccc;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+@mixin error-colors {
+  color: #D8000C;
+  background: #FFBABA;
+}
+
+@mixin error-icon {
+  @include main-sprite("icon-cross");
+}
+
+//.info {
+//  color: #00529B;
+//  background: #BDE5F8 url('http://mydomain.com/images/icon-info.png') no-repeat 10px center;
+//}
+//.success {
+//  color: #4F8A10;
+//  background: #DFF2BF url('http://mydomain.com/images/icon-tick.png') no-repeat 10px center;
+//}
+//.warning {
+//  color: #9F6000;
+//  background: #FEEFB3 url('http://mydomain.com/images/icon-warning.png') no-repeat 10px center;
+//}
+//.error {
+//  color: #D8000C;
+//  background: #FFBABA url('http://mydomain.com/images/icon-cross.png') no-repeat 10px center;
+//}
+
+/* helpers */
+@mixin clear {
+  clear: both;
+  display: block;
+  content: '';
+}
+
+/* layout */
+.content {
+  width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.error {
+  @include big-message-box;
+  @include error-colors;
+  &:after {
+    @include clear;
+  }
+  .img {
+    @include error-icon;
+    margin: 0 20px 0 0;
+  }
+  div {
+    float: left;
+  }
+  .text {
+    padding: 9px 0 0;
+  }
+}
+
+/* register page*/
+#register-form {
+  width: 400px;
+  text-align: center;
+  margin: 250px auto 0;
+  border: 2px solid #696969;
+  border-radius: 15px;
+  padding: 0 15px 15px;
+  box-shadow: 10px 10px 5px #888888;
+  background-color: ghostwhite;
+  .title{
+    background: none repeat scroll 0 0 #CFFBB7;
+    border-radius: 12px 12px 0 0;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 -15px 10px;
+    padding: 10px 15px;
+    text-align: left;
+    text-shadow: 2px 2px 2px #bbbbbb;
+  }
+  #registerUser {
+    margin: 0 0 6px;
+    div {
+      padding: 3px 0;
+      &:after {
+        @include clear;
+      }
+    }
+    label {
+      float: left;
+      margin: 0 0 10px 0;
+    }
+    input {
+      float: right;
+      width: 200px;
+    }
+    ul {
+      float: right;
+      width: 185px;
+      @include message-box;
+      @include error-colors;
+    }
+  }
+}
