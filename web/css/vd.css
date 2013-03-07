@@ -93,14 +93,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* mixin of messages*/
 /* helpers */
 /* layout */
-/* line 87, assetic_compassmrSwGI.scss */
+/* line 96, assetic_compassqr7lW6.scss */
 .content {
   width: 900px;
   margin: auto;
   text-align: center;
 }
 
-/* line 93, assetic_compassmrSwGI.scss */
+/* line 102, assetic_compassqr7lW6.scss */
 .error {
   border: 1px solid;
   margin: 0 0 15px 0;
@@ -117,13 +117,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   color: #D8000C;
   background: #FFBABA;
 }
-/* line 96, assetic_compassmrSwGI.scss */
+/* line 105, assetic_compassqr7lW6.scss */
 .error:after {
   clear: both;
   display: block;
   content: '';
 }
-/* line 99, assetic_compassmrSwGI.scss */
+/* line 108, assetic_compassqr7lW6.scss */
 .error .img {
   background: url('/sf-vd/web/images/sprite-s7604bc354e.png') 0 -32px;
   background-repeat: no-repeat;
@@ -131,65 +131,115 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 32px;
   margin: 0 20px 0 0;
 }
-/* line 103, assetic_compassmrSwGI.scss */
+/* line 112, assetic_compassqr7lW6.scss */
 .error div {
   float: left;
 }
-/* line 106, assetic_compassmrSwGI.scss */
+/* line 115, assetic_compassqr7lW6.scss */
 .error .text {
   padding: 9px 0 0;
 }
 
-/* register page*/
-/* line 112, assetic_compassmrSwGI.scss */
-#register-form {
+/* line 120, assetic_compassqr7lW6.scss */
+.success {
+  border: 1px solid;
+  margin: 0 0 15px 0;
+  padding: 10px 20px;
+  font: bold 12px verdana;
+  -moz-box-shadow: 0 0 5px #888888;
+  -webkit-box-shadow: 0 0 5px #888888;
+  box-shadow: 0 0 5px #888888;
+  text-shadow: 2px 2px 2px #cccccc;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  text-align: left;
+  color: #4F8A10;
+  background: #DFF2BF;
+}
+/* line 123, assetic_compassqr7lW6.scss */
+.success:after {
+  clear: both;
+  display: block;
+  content: '';
+}
+/* line 126, assetic_compassqr7lW6.scss */
+.success .img {
+  background: url('/sf-vd/web/images/sprite-s7604bc354e.png') 0 -96px;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  margin: 0 20px 0 0;
+}
+/* line 130, assetic_compassqr7lW6.scss */
+.success div {
+  float: left;
+}
+/* line 133, assetic_compassqr7lW6.scss */
+.success .text {
+  padding: 9px 0 0;
+}
+
+/* line 138, assetic_compassqr7lW6.scss */
+.box-400 {
   width: 400px;
   text-align: center;
-  margin: 250px auto 0;
+  margin: 50px auto 0;
   border: 2px solid dimgrey;
   border-radius: 15px;
   padding: 0 15px 15px;
   box-shadow: 10px 10px 5px #888888;
   background-color: ghostwhite;
 }
-/* line 121, assetic_compassmrSwGI.scss */
-#register-form .title {
-  background: none repeat scroll 0 0 #cffbb7;
-  border-radius: 12px 12px 0 0;
-  color: #FFFFFF;
-  font-size: 18px;
+/* line 147, assetic_compassqr7lW6.scss */
+.box-400 .title {
+  color: #94bb46;
+  font-size: 22px;
   font-weight: 700;
-  margin: 0 -15px 10px;
-  padding: 10px 15px;
+  padding: 10px 0;
   text-align: left;
-  text-shadow: 2px 2px 2px #bbbbbb;
+  text-shadow: -1px -1px 0px #414141;
 }
-/* line 132, assetic_compassmrSwGI.scss */
-#register-form #registerUser {
+/* line 158, assetic_compassqr7lW6.scss */
+.box-400 .box-content {
+  text-align: left;
+}
+/* line 161, assetic_compassqr7lW6.scss */
+.box-400 a {
+  text-decoration: none;
+  text-color: #26559f;
+}
+/* line 165, assetic_compassqr7lW6.scss */
+.box-400 a:hover {
+  text-decoration: none;
+  text-color: #29aaff;
+}
+/* line 169, assetic_compassqr7lW6.scss */
+.box-400 form div {
   margin: 0 0 6px;
 }
-/* line 134, assetic_compassmrSwGI.scss */
-#register-form #registerUser div {
+/* line 171, assetic_compassqr7lW6.scss */
+.box-400 form div div {
   padding: 3px 0;
 }
-/* line 136, assetic_compassmrSwGI.scss */
-#register-form #registerUser div:after {
+/* line 173, assetic_compassqr7lW6.scss */
+.box-400 form div div:after {
   clear: both;
   display: block;
   content: '';
 }
-/* line 140, assetic_compassmrSwGI.scss */
-#register-form #registerUser label {
+/* line 177, assetic_compassqr7lW6.scss */
+.box-400 form div label {
   float: left;
   margin: 0 0 10px 0;
 }
-/* line 144, assetic_compassmrSwGI.scss */
-#register-form #registerUser input {
+/* line 181, assetic_compassqr7lW6.scss */
+.box-400 form div input {
   float: right;
   width: 200px;
 }
-/* line 148, assetic_compassmrSwGI.scss */
-#register-form #registerUser ul {
+/* line 185, assetic_compassqr7lW6.scss */
+.box-400 form div ul {
   float: right;
   width: 185px;
   border: 1px solid;

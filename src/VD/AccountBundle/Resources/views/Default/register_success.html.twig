@@ -1,6 +1,10 @@
 {% extends "VDAccountBundle:Default:layout.html.twig" %}
 {% block body %}
-    <div>
-        Registracija pavyko.
+    <div class="box-400">
+        <div class="title">Registracijos forma</div>
+        <div class="success"><div class="img"></div><div class="text">Registracija pavyko.</div></div>
+        <div class="box-content">
+            <a href="{{ path('vd_account_index') }}">Keliauti į puslapį</a>
+        </div>
     </div>
 {% endblock %}

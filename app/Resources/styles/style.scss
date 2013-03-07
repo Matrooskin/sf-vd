@@ -59,6 +59,15 @@ $spriteMap: sprite-map("sprite/*.png");
   @include main-sprite("icon-cross");
 }
 
+@mixin success-colors {
+  color: #4F8A10;
+  background: #DFF2BF;
+}
+
+@mixin success-icon {
+  @include main-sprite("icon-tick");
+}
+
 //.info {
 //  color: #00529B;
 //  background: #BDE5F8 url('http://mydomain.com/images/icon-info.png') no-repeat 10px center;
@@ -108,28 +117,56 @@ $spriteMap: sprite-map("sprite/*.png");
   }
 }
 
-/* register page*/
-#register-form {
+.success {
+  @include big-message-box;
+  @include success-colors;
+  &:after {
+    @include clear;
+  }
+  .img {
+    @include success-icon;
+    margin: 0 20px 0 0;
+  }
+  div {
+    float: left;
+  }
+  .text {
+    padding: 9px 0 0;
+  }
+}
+
+.box-400 {
   width: 400px;
   text-align: center;
-  margin: 250px auto 0;
+  margin: 50px auto 0;
   border: 2px solid #696969;
   border-radius: 15px;
   padding: 0 15px 15px;
   box-shadow: 10px 10px 5px #888888;
   background-color: ghostwhite;
-  .title{
-    background: none repeat scroll 0 0 #CFFBB7;
-    border-radius: 12px 12px 0 0;
-    color: #FFFFFF;
-    font-size: 18px;
+  .title {
+    //background: none repeat scroll 0 0 #CFFBB7;
+    //border-radius: 12px 12px 0 0;
+    color: #94bb46;
+    font-size: 22px;
     font-weight: 700;
-    margin: 0 -15px 10px;
-    padding: 10px 15px;
+    //margin: 0 -15px 10px;
+    padding: 10px 0;
     text-align: left;
-    text-shadow: 2px 2px 2px #bbbbbb;
+    text-shadow: -1px -1px 0px #414141;
   }
-  #registerUser {
+  .box-content {
+    text-align: left;
+  }
+  a {
+    text-decoration: none;
+    color: #26559f;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #29aaff;
+  }
+  form div{
     margin: 0 0 6px;
     div {
       padding: 3px 0;

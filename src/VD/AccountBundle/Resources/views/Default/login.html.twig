@@ -1,21 +1,31 @@
 {% extends "VDAccountBundle:Default:layout.html.twig" %}
 {% block body %}
-    {% if error %}
-        <div>{{ error.message }}</div>
-    {% endif %}
+    <div id="login-form" class="box-400">
+        <div class="title">Prisijungimo forma</div>
+        {% if error %}
+            <div class="error">
+                <div class="img"></div>
+                <div class="text">{{ error.message }}</div>
+            </div>
+        {% endif %}
 
-    <form action="{{ path('vd_account_login_check') }}" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+        <form action="{{ path('vd_account_login_check') }}" method="post">
+            <div id="LoginUser">
+                <div>
+                    <label for="username">Vartotojo vardas (el. paštas):</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+                </div>
+                <div>
+                    <label for="password">Slaptažodis:</label>
+                    <input type="password" id="password" name="_password"/>
+                </div>
+            </div>
+            {#
+                If you want to control the URL the user is redirected to on success (more details below)
+                <input type="hidden" name="_target_path" value="/account" />
+            #}
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password"/>
-
-        {#
-            If you want to control the URL the user is redirected to on success (more details below)
-            <input type="hidden" name="_target_path" value="/account" />
-        #}
-
-        <button type="submit">login</button>
-    </form>
+            <button type="submit">Prisijungti</button>
+        </form>
+    </div>
 {% endblock %}
