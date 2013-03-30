@@ -2,5 +2,8 @@
 {% block body %}
     <div class="box-400">
         <div class="title">Jūs prisijungę {{ app.user.name }} vardu</div>
+        <div class="title">User id {{ app.user.id }}</div>
+        <div class="title">User email {{ app.user.email }}</div>
     </div>
+    {% render 'VDAccountBundle:Income:Add' %}
 {% endblock %}
