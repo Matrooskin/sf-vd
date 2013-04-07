@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Income
  *
- * @ORM\Table()
+ * @ORM\Table('income')
  * @ORM\Entity
  */
 class Income
@@ -43,9 +43,25 @@ class Income
     private $type;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="timestamp", type="datetime")
+     */
+     private $timestamp;
+
+    /**
      * @var integer
      *
-     * @ORM\Column(name="person", type="integer")
+     * ORM\Column(name="person", type="integer")
+     * @ManyToOne(targetEntity="User", inversedBy="incomes")
+     * @JoinColumn(name="person", referencedColumnName="id")
      */
     private $person;
 
@@ -56,6 +72,17 @@ class Income
      */
     private $comment;
 
+
+    /**
+     * Now we tell doctrine that before we persist or update we call the updatedTimestamps() function.
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps()
+    {
+        $this->setTimestamp(new \DateTime(date('Y-m-d H:i:s')));
+    }
 
     /**
      * Get id
@@ -134,6 +161,52 @@ class Income
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return test
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set timestamp
+     *
+     * @param \DateTime $timestamp
+     * @return test
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp
+     *
+     * @return \DateTime
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
     }
 
     /**

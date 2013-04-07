@@ -11,17 +11,28 @@ class IncomeForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('amount', 'money', array('label' => 'Suma', 'currency' => 'LTU'));
-        $builder->add('currency', 'choice', array('label' => 'Valiuta', 'choices' => array('LTU', 'EUR')));
+        $builder->add(
+            'date',
+            'date',
+            array('label' => 'Data', 'input' => 'datetime', 'widget' => 'choice')
+        );
         $builder->add('type', 'text', array('label' => 'Už ką (rūšis)'));
-        $builder->add('person', 'text', array('label' => 'Kas (asmuo)'));
-        $builder->add('comment', 'text', array('label' => 'Pastaba'));
+        $builder->add(
+            'person',
+            'entity',
+            array('label' => 'Kas (asmuo)', 'class' => 'VDAccountBundle:User', 'property' => 'name')
+        );
+        $builder->add('currency', 'choice', array('label' => 'Valiuta', 'choices' => array('LTU')));
+        $builder->add('comment', 'textarea', array('label' => 'Pastaba'));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'VD\AccountBundle\Entity\Income',
-        ));
+        $resolver->setDefaults(
+            array(
+                'data_class' => 'VD\AccountBundle\Entity\Income',
+            )
+        );
     }
 
     public function getName()

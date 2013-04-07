@@ -178,9 +178,13 @@ $spriteMap: sprite-map("sprite/*.png");
       float: left;
       margin: 0 0 10px 0;
     }
-    input {
+    input, textarea {
       float: right;
       width: 200px;
+    }
+    select {
+      float: right;
+      width: 206px;
     }
     ul {
       float: right;

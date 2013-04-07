@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * User
  *
- * @ORM\Table()
+ * @ORM\Table('user')
  * @ORM\Entity
  */
 class User implements UserInterface, \Serializable
@@ -51,11 +51,19 @@ class User implements UserInterface, \Serializable
     private $salt;
 
     /**
+     * @var array
+     *
+     * @OneToMany(targetEntity="Income", mappedBy="person")
+     **/
+    private $incomes;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->salt = md5(uniqid(null, true));
+        $this->incomes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -166,6 +174,29 @@ class User implements UserInterface, \Serializable
     public function getSalt()
     {
         return $this->salt;
+    }
+
+    /**
+     * Set incomes
+     *
+     * @param Income $income
+     * @return User
+     */
+    public function addIncome(Income $income)
+    {
+        $this->incomes[] = $income;
+
+        return $this;
+    }
+
+    /**
+     * Get incomes
+     *
+     * @return array
+     */
+    public function getIncomes()
+    {
+        return $this->incomes;
     }
 
     /**
