@@ -53,7 +53,7 @@ class DebugClassLoader
         }
 
         foreach ($functions as $function) {
-            if (is_array($function) && method_exists($function[0], 'findFile')) {
+            if (is_array($function) && !$function[0] instanceof self && method_exists($function[0], 'findFile')) {
                 $function = array(new static($function[0]), 'loadClass');
             }
 
@@ -70,11 +70,25 @@ class DebugClassLoader
     }
 
     /**
+     * Finds a file by class name
+     *
+     * @param string $class A class name to resolve to file
+     *
+     * @return string|null
+     */
+    public function findFile($class)
+    {
+        return $this->classFinder->findFile($class);
+    }
+
+    /**
      * Loads the given class or interface.
      *
      * @param string $class The name of the class
      *
      * @return Boolean|null True, if loaded
+     *
+     * @throws \RuntimeException
      */
     public function loadClass($class)
     {
