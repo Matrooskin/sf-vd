@@ -15,6 +15,12 @@ class IncomeController extends Controller
     {
         $income = new Income();
 
+        $timeZone = new \DateTimeZone('Europe/Vilnius');
+        $date = new \DateTime('now', $timeZone);
+        $income->setDate($date);
+
+        $income->setPerson($this->getUser());
+
         $form = $this->createForm(new IncomeForm(), $income);
 
 //        if ($request->isMethod('POST')) {

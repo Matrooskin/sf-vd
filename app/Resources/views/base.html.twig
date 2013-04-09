@@ -12,6 +12,16 @@
         <div class="content">
             {% block body %}{% endblock %}
         </div>
+        {% javascripts
+        '../app/Resources/scripts/lib/jquery-1.9.1.js'
+        '../app/Resources/scripts/lib/jquery-ui-1.10.2.custom.js'
+        '../app/Resources/scripts/widget/*'
+        '../app/Resources/scripts/start.js'
+        output="js/vd.js"
+        filter="?closure"
+        %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>

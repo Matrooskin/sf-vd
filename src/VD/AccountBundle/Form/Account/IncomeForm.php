@@ -14,7 +14,7 @@ class IncomeForm extends AbstractType
         $builder->add(
             'date',
             'date',
-            array('label' => 'Data', 'input' => 'datetime', 'widget' => 'choice')
+            array('label' => 'Data', 'input' => 'datetime', 'widget' => 'choice', 'user_timezone' => 'Europe/Vilnius')
         );
         $builder->add('type', 'text', array('label' => 'Už ką (rūšis)'));
         $builder->add(
