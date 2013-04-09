@@ -4,6 +4,7 @@ imports:
 
 framework:
     #esi:             ~
+    esi: { enabled: true }
     #translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:

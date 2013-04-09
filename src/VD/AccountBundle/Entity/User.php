@@ -2,13 +2,15 @@
 
 namespace VD\AccountBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use VD\AccountBundle\Entity\Income;
 
 /**
  * User
  *
- * @ORM\Table('user')
+ * @ORM\Table(name="user")
  * @ORM\Entity
  */
 class User implements UserInterface, \Serializable
@@ -51,9 +53,9 @@ class User implements UserInterface, \Serializable
     private $salt;
 
     /**
-     * @var array
+     * @var \Doctrine\Common\Collections\Collection
      *
-     * @OneToMany(targetEntity="Income", mappedBy="person")
+     * @ORM\OneToMany(targetEntity="VD\AccountBundle\Entity\Income", mappedBy="person")
      **/
     private $incomes;
 
@@ -63,7 +65,7 @@ class User implements UserInterface, \Serializable
     public function __construct()
     {
         $this->salt = md5(uniqid(null, true));
-        $this->incomes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->incomes = new ArrayCollection();
     }
 
     /**
@@ -177,7 +179,7 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set incomes
+     * Add incomes
      *
      * @param Income $income
      * @return User
@@ -187,6 +189,17 @@ class User implements UserInterface, \Serializable
         $this->incomes[] = $income;
 
         return $this;
+    }
+
+    /**
+     * Remove income
+     *
+     * @param Income $income
+     * @return User
+     */
+    public function removeIncome(Income $income)
+    {
+        $this->incomes->removeElement($income);
     }
 
     /**

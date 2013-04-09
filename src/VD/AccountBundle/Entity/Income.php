@@ -3,11 +3,12 @@
 namespace VD\AccountBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use VD\AccountBundle\Entity\User;
 
 /**
  * Income
  *
- * @ORM\Table('income')
+ * @ORM\Table(name="income")
  * @ORM\Entity
  */
 class Income
@@ -60,8 +61,10 @@ class Income
      * @var integer
      *
      * ORM\Column(name="person", type="integer")
-     * @ManyToOne(targetEntity="User", inversedBy="incomes")
-     * @JoinColumn(name="person", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="VD\AccountBundle\Entity\User", inversedBy="incomes")
+     * @ORM\JoinColumns({
+     * @ORM\JoinColumn(name="person", referencedColumnName="id")
+     * })
      */
     private $person;
 
@@ -212,7 +215,7 @@ class Income
     /**
      * Set person
      *
-     * @param integer $person
+     * @param User $person
      * @return Income
      */
     public function setPerson($person)
@@ -225,7 +228,7 @@ class Income
     /**
      * Get person
      *
-     * @return integer 
+     * @return User
      */
     public function getPerson()
     {

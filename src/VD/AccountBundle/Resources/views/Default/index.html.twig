@@ -5,5 +5,5 @@
         <div class="title">User id {{ app.user.id }}</div>
         <div class="title">User email {{ app.user.email }}</div>
     </div>
-    {% render 'VDAccountBundle:Income:Add' %}
+    {{ render_esi(url('_vd_add_income', { 'max': 5 })) }}
 {% endblock %}
