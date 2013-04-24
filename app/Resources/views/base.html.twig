@@ -3,7 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% stylesheets "../app/Resources/styles/style.scss" output="css/vd.css" filter="?yui_css" %}
+        {% stylesheets
+            "../app/Resources/styles/style.scss"
+            "../app/Resources/styles/bootstrap/*.css"
+            output="css/vd.css" filter="?yui_css" %}
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
         {% endstylesheets %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -15,6 +18,7 @@
         {% javascripts
         '../app/Resources/scripts/lib/jquery-1.9.1.js'
         '../app/Resources/scripts/lib/jquery-ui-1.10.2.custom.js'
+        '../app/Resources/scripts/lib/bootstrap.js'
         '../app/Resources/scripts/widget/*'
         '../app/Resources/scripts/start.js'
         output="js/vd.js"
