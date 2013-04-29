@@ -16,6 +16,6 @@ vd_account_login_check:
 vd_account_logout:
     pattern:  /logout
     defaults: { _controller: VDAccountBundle:Default:logout }
-_vd_add_income:
-    pattern: /_proxy/addIncome
+vd_add_income:
+    pattern: /incomeAdd
     defaults: { _controller: VDAccountBundle:Income:add }

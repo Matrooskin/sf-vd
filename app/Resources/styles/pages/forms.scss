@@ -1,0 +1,32 @@
+.form-horizontal {
+  max-width: 400px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+  input[type="text"], input[type="password"] {
+    font-size: 16px;
+    height: auto;
+    padding: 7px 9px;
+  }
+  h2 {
+    text-align: center;
+  }
+  .control-label {
+    width: 130px;
+  }
+  .controls {
+    margin-left: 140px;
+  }
+  .control-group {
+    &.last {
+      margin-bottom: 0;
+    }
+  }
+}

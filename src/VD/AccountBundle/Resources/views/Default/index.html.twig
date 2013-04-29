@@ -1,9 +1,10 @@
-{% extends "VDAccountBundle:Default:layout.html.twig" %}
+{% extends "VDAccountBundle:Default:layout_after_login.html.twig" %}
+{% set active='index' %}
 {% block body %}
     <div class="box-400">
         <div class="title">Jūs prisijungę {{ app.user.name }} vardu</div>
         <div class="title">User id {{ app.user.id }}</div>
         <div class="title">User email {{ app.user.email }}</div>
     </div>
-    {{ render_esi(url('_vd_add_income', { 'max': 1 })) }}
+    {#{{ render_esi(url('vd_add_income', { 'max': 1 })) }}#}
 {% endblock %}

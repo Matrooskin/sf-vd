@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{# import "_self" as the form theme #}
+{% form_theme form _self %}
+
+{# make the form fragment customization #}
+{% block form_row %}
+    {# custom field row output #}
+    {% spaceless %}
+        {% if form.vars.errors|length > 0 %}
+            {% set addClass = ' error' %}
+        {% else %}
+            {% set addClass = '' %}
+        {% endif %}
+        <div class="control-group{{ addClass }}">
+            {{ form_label(form, label|default(null), { 'label_attr': {'class': 'control-label'} }) }}
+            <div class="controls">
+                {{ form_widget(form, { 'attr': {'placeholder': form.vars.label } }) }}
+                {{ form_errors(form) }}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock form_row %}
+
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            <ul>
+                {% for error in errors %}
+                    <li class="help-block">{{ error.message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
+
+{#{% block content %}#}
+     {#... #}
+
+    {#{{ form_row(form.task) }}#}
+{#{% endblock %}#}

@@ -1,14 +1,19 @@
-{% extends "VDAccountBundle:Default:layout.html.twig" %}
+{% extends "VDAccountBundle:Default:layout_before_login.html.twig" %}
+{% set active = 'register' %}
 {% block body %}
-    <div class="box-400">
-        <div class="title">Registracijos forma</div>
-    {% if error is defined %}
-        <div class="error"><div class="img"></div><div class="text">{{ error }}</div></div>
-    {% endif %}
-    <form action="{{ path('vd_account_register') }}" method="post" {{ form_enctype(form) }}>
+    <form action="{{ path('vd_account_register') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
+        <h2 class="form-signin-heading">Registracijos forma</h2>
+        {% if error is defined %}
+            <div class="alert alert-error">
+                {{ error }}
+            </div>
+        {% endif %}
         {{ form_widget(form) }}
 
-        <input type="submit" title="Registruotis" value="Registruotis"/>
+        <div class="control-group last">
+            <div class="controls">
+                <input class="btn btn-primary" type="submit" title="Registruotis" value="Registruotis"/>
+            </div>
+        </div>
     </form>
-    </div>
 {% endblock %}

@@ -2,17 +2,56 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}VD{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% stylesheets
-            "../app/Resources/styles/style.scss"
-            "../app/Resources/styles/bootstrap/*.css"
+            "../app/Resources/styles/bootstrap/bootstrap.css"
+            "../app/Resources/styles/bootstrap/bootstrap-responsive.css"
+            "../app/Resources/styles/pages/*.scss"
+            "../app/Resources/styles/bootstrap.scss"
             output="css/vd.css" filter="?yui_css" %}
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
         {% endstylesheets %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        <div class="content">
+        <!-- NAVBAR ================================================== -->
+        <div class="navbar-wrapper">
+            <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+            <div class="container">
+
+                <div class="navbar navbar-inverse">
+                    <div class="navbar-inner">
+                        <a class="brand" href="{{ url("vd_account_index") }}">Biudžetininkas</a>
+                        <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right">
+                                {% block navbarOnRight %}{% endblock %}
+                            </ul>
+                            <ul class="nav">
+                                {% block navbar %}{% endblock %}
+                                <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+                                {#<li class="dropdown">#}
+                                    {#<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>#}
+                                    {#<ul class="dropdown-menu">#}
+                                        {#<li><a href="#">Action</a></li>#}
+                                        {#<li><a href="#">Another action</a></li>#}
+                                        {#<li><a href="#">Something else here</a></li>#}
+                                        {#<li class="divider"></li>#}
+                                        {#<li class="nav-header">Nav header</li>#}
+                                        {#<li><a href="#">Separated link</a></li>#}
+                                        {#<li><a href="#">One more separated link</a></li>#}
+                                    {#</ul>#}
+                                {#</li>#}
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div><!-- /.navbar-inner -->
+                </div><!-- /.navbar -->
+
+            </div> <!-- /.container -->
+        </div><!-- /.navbar-wrapper -->
+
+        <div class="container">
             {% block body %}{% endblock %}
         </div>
         {% javascripts

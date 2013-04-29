@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+{% block navbarOnRight %}
+    <li>
+        <a href="{{ url("vd_account_logout") }}">Atsijungti</a>
+    </li>
+{% endblock %}
+
+{% block navbar %}
+    <li {% if active == 'index' %}class=" active" {% endif %}><a href="{{ url('vd_account_index') }}">Pradžia</a></li>
+    <li {% if active == 'incomeAdd' %}class="active" {% endif %}><a href="{{ url('vd_add_income') }}">Pajamos</a>
+    </li>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends "::base.html.twig" %}
+{% block navbar %}
+    <li {% if active == 'login' %}class="active" {% endif %}><a href="{{ url('vd_account_login') }}">Prisijungti</a></li>
+    <li {% if active == 'register' %}class="active" {% endif %}><a href="{{ url('vd_account_register') }}">Regsitruotis</a></li>
+{% endblock %}

@@ -49,6 +49,6 @@ class IncomeController extends Controller
 //            }
 //        }
 
-        return $this->render('VDAccountBundle:Default:incomeAdd.html.twig', array('form' => $form->createView()));
+        return $this->render('VDAccountBundle:Income:add.html.twig', array('form' => $form->createView()));
     }
 }

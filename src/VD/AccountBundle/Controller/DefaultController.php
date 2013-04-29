@@ -3,6 +3,7 @@
 namespace VD\AccountBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -23,15 +24,21 @@ class DefaultController extends Controller
         if ($request->isMethod('POST')) {
             $form->bind($request);
 
-            if ($form->isValid()) {
+
+            $data = $form->get('equation');
+            if ($data->getData() !== '6') {
+                $data->addError(new FormError('Pasikartokite penktos klasės matematikos kursą'));
+            } elseif ($form->isValid()) {
                 // perform some action, such as saving the task to the database
                 $user = $form->getData();
                 $em = $this->getDoctrine()->getManager();
                 $oUser = $em->getRepository('VDAccountBundle:User')
                     ->findByEmail($user->getEmail());
                 if ($oUser) {
-                    return $this->render('VDAccountBundle:Default:register.html.twig',
-                        array('form' => $form->createView(), 'error' => 'Vartotojas jau egzistuoja'));
+                    return $this->render(
+                        'VDAccountBundle:Default:register.html.twig',
+                        array('form' => $form->createView(), 'error' => 'Vartotojas jau egzistuoja')
+                    );
                 }
 
                 $factory = $this->get('security.encoder_factory');

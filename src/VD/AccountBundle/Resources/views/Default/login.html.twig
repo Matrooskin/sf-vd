@@ -1,31 +1,36 @@
-{% extends "VDAccountBundle:Default:layout.html.twig" %}
+{% extends "VDAccountBundle:Default:layout_before_login.html.twig" %}
+{% set active = 'login' %}
 {% block body %}
-    <div id="login-form" class="box-400">
-        <div class="title">Prisijungimo forma</div>
+    <form action="{{ path('vd_account_login_check') }}" method="post" class="form-horizontal form-login">
+        <h2 class="form-signin-heading">Prisijungimo forma</h2>
         {% if error %}
-            <div class="error">
-                <div class="img"></div>
-                <div class="text">{{ error.message }}</div>
+            <div class="alert alert-error">
+                {{ error.message }}
             </div>
         {% endif %}
 
-        <form action="{{ path('vd_account_login_check') }}" method="post">
-            <div id="LoginUser">
-                <div>
-                    <label for="username">Vartotojo vardas (el. paštas):</label>
-                    <input type="text" id="username" name="_username" value="{{ last_username }}"/>
-                </div>
-                <div>
-                    <label for="password">Slaptažodis:</label>
-                    <input type="password" id="password" name="_password"/>
-                </div>
-            </div>
-            {#
-                If you want to control the URL the user is redirected to on success (more details below)
-                <input type="hidden" name="_target_path" value="/account" />
-            #}
+        <div class="control-group">
+            <label class="control-label" for="username">Vartotojo vardas</label>
 
-            <button type="submit">Prisijungti</button>
-        </form>
-    </div>
+            <div class="controls">
+                <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="El. paštas"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Slaptažodis</label>
+
+            <div class="controls">
+                <input type="password" id="password" name="_password" placeholder="Slaptažodis"/>
+            </div>
+        </div>
+        {#
+            If you want to control the URL the user is redirected to on success (more details below)
+            <input type="hidden" name="_target_path" value="/account" />
+        #}
+        <div class="control-group last">
+            <div class="controls">
+                <button class="btn btn-primary" type="submit">Prisijungti</button>
+            </div>
+        </div>
+    </form>
 {% endblock %}
